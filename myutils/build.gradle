@@ -5,7 +5,7 @@ publish {
     userOrg = 'yangztel0'//bintray.com用户名
     groupId = 'com.yangteL'//jcenter上的路径,bintray上创建Package时填写的Version control项
     artifactId = 'utils'//项目名称，bintray上创建Package时填写的Name项
-    publishVersion = '1.0.1'//版本号
+    publishVersion = '1.0.2'//版本号
     desc = '工具'//描述，不重要
     website = 'https://sicheng1991.github.io/'//网站，最好有，不重要
 }
@@ -16,7 +16,7 @@ android {
 
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
