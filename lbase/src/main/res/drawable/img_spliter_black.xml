@@ -1,0 +1,35 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="360dp"
+    android:height="90dp"
+    android:viewportHeight="90"
+    android:viewportWidth="360">
+    <!--<path-->
+    <!--android:fillColor="#FF000000"-->
+    <!--android:pathData="M15.41,16.09l-4.58,-4.59 4.58,-4.59L14,5.5l-6,6 6,6z"/>-->
+
+    <!--M：move to 移动绘制点，作用相当于把画笔落在哪一点。-->
+    <!--L：line to 直线，就是一条直线，注意，只是直线，直线是没有宽度的，所以你什么也看不到。-->
+    <!--Z：close 闭合，嗯，就是把图封闭起来。-->
+    <!--C：cubic bezier 三次贝塞尔曲线-->
+    <!--Q：quatratic bezier 二次贝塞尔曲线-->
+    <!--A：ellipse 圆弧-->
+
+    <!--对应坐标的含义-->
+    <!--M (x y) 把画笔移动到x,y，要准备在这个地方画图了。-->
+    <!--L (x y) 直线连到x,y，还有简化命令H(x) 水平连接、V(y)垂直连接。-->
+    <!--Z，没有参数，连接起点和终点-->
+    <!--C(x1 y1 x2 y2 x y)，控制点（x1,y1）（ x2,y2），终点x,y 。-->
+    <!--Q(x1 y1 x y)，控制点（x1,y1），终点x,y-->
+    <!--A(rx ry x-axis-rotation large-arc-flag sweep-flag x y)-->
+
+
+
+
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M179,0
+        L179,89
+        L181,89
+        L181,0
+        z" />
+</vector>

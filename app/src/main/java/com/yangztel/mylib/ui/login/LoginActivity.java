@@ -1,11 +1,10 @@
-package com.yangztel.mylib.login;
+package com.yangztel.mylib.ui.login;
 
 import android.content.ActivityNotFoundException;
 import android.content.ClipboardManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,9 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.tencent.mm.opensdk.modelbiz.JumpToBizProfile;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.yangztel.lbase.mvp.BaseActivity;
 import com.yangztel.mylib.R;
 import com.yangztel.mylib.util.EventHelper;
@@ -93,6 +89,9 @@ public class LoginActivity extends BaseActivity<LoginContract.Presenter> impleme
     @Override
     protected void initEventAndData() {
         EventHelper.click(this,button);
+//        button.setPivotX(200);
+//        button.setPivotY(200);
+//        button.setRotation(30);
     }
 
     @Override

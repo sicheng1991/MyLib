@@ -1,4 +1,4 @@
-package com.yangztel.mylib.login;
+package com.yangztel.mylib.ui.login;
 
 import com.yangztel.lbase.mvp.IModel;
 import com.yangztel.lbase.mvp.IPresenter;

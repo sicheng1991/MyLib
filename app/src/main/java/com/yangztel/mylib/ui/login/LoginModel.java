@@ -1,4 +1,4 @@
-package com.yangztel.mylib.login;
+package com.yangztel.mylib.ui.login;
 
 import com.yangztel.lbase.mvp.BaseModel;
 import com.yangztel.lbase.mvp.BusBean;
@@ -10,7 +10,6 @@ import com.yangztel.lbase.net.HttpResult;
 import com.yangztel.mylib.LoginBean;
 import com.yangztel.mylib.api;
 
-import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
 /**
