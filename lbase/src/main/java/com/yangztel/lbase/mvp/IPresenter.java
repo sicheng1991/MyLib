@@ -1,4 +1,4 @@
-package com.yangztel.lbase.base;
+package com.yangztel.lbase.mvp;
 
 /**
  * Created by yangzteL on 2018/7/4 0004.

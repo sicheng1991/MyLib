@@ -2,7 +2,8 @@ package com.yangztel.mylib.login;
 
 import android.util.Log;
 
-import com.yangztel.lbase.base.BasePresenter;
+import com.yangztel.lbase.mvp.BasePresenter;
+import com.yangztel.mylib.LoginBean;
 
 /**
  * Created by yangzteL on 2018/7/5 0005.
@@ -15,7 +16,9 @@ public class LoginPresenter extends BasePresenter<LoginContract.View,LoginContra
     protected LoginContract.Model getModel() {
         return new LoginModel(busBean -> {
             if(busBean.type == LoginModel.LOGIN){
-                Log.e("msgggggg", "initBusData: " + busBean.data);
+//                Log.e("msgggggg", "initBusData: " + busBean.data);
+                LoginBean bean = (LoginBean) busBean.data;
+                Log.e("msggggg","initBusData: " + bean.getToken());
             }
         });
     }

@@ -1,4 +1,4 @@
-package com.yangztel.lbase.base;
+package com.yangztel.lbase.mvp;
 
 import android.app.Activity;
 import android.app.ActivityManager;

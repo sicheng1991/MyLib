@@ -1,6 +1,4 @@
-package com.yangztel.lbase.base;
-
-import org.reactivestreams.Subscription;
+package com.yangztel.lbase.mvp;
 
 import java.util.HashMap;
 import java.util.Map;

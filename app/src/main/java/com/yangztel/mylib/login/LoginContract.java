@@ -1,8 +1,8 @@
 package com.yangztel.mylib.login;
 
-import com.yangztel.lbase.base.IModel;
-import com.yangztel.lbase.base.IPresenter;
-import com.yangztel.lbase.base.IView;
+import com.yangztel.lbase.mvp.IModel;
+import com.yangztel.lbase.mvp.IPresenter;
+import com.yangztel.lbase.mvp.IView;
 
 /**
  * Created by yangzteL on 2018/7/5 0005.

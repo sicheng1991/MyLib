@@ -4,8 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.yangztel.lbase.base.RxBus;
-import com.yangztel.lbase.base.RxManager;
+import com.yangztel.lbase.mvp.RxBus;
+import com.yangztel.lbase.mvp.RxManager;
 
 import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
