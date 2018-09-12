@@ -5,18 +5,25 @@ import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.gesture.Gesture;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Environment;
+import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.ActionBar;
@@ -48,6 +55,7 @@ import com.google.gson.Gson;
 import com.jaeger.library.StatusBarUtil;
 import com.yangztel.lbase.mvp.RxBus;
 import com.yangztel.lbase.mvp.RxManager;
+import com.yangztel.mylib.util.NotificationUtils;
 import com.yangztel.mylib.util.StatusBarCompat;
 import com.yangztel.myutils.utils.ToastUtil;
 
@@ -104,46 +112,83 @@ public class MainActivity extends FragmentActivity {
         animatorSet.start();
 
 
+        requestPermission();
 
-        setWindow();
+        NotificationUtils utils = new NotificationUtils(this);
+        utils.sendNotification("标题","这是内容");
+
+
+
+
         rxbus();
     }
 
+    /**
+     * 悬浮权限
+     */
+    private  void requestPermission(){
+       if(Build.VERSION.SDK_INT > Build.VERSION_CODES.M){
+           if(Settings.canDrawOverlays(this)){
+               setWindow();
+           }else {
+               Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+               intent.setData(Uri.parse("package:" + getPackageName()));
+               startActivityForResult(intent, 100);
+           }
+
+       }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 100){
+            setWindow();
+        }
+    }
 
     /**
      * window
      */
     @SuppressLint("ClickableViewAccessibility")
     private void setWindow() {
-        TextView button=new Button(this);
+        TextView button=new TextView(this);
+        button.setBackgroundColor(Color.WHITE);
         button.setText("点我");
+        button.setGravity(Gravity.CENTER);
         WindowManager wmManager=(WindowManager) getSystemService(Context.WINDOW_SERVICE);
         WindowManager.LayoutParams lp=new WindowManager.LayoutParams();
         lp.flags= WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
                 |WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED;
 
-//        lp.gravity= Gravity.TOP;
-        lp.x = 200;
+        lp.gravity= Gravity.TOP | Gravity.LEFT;
+        lp.x = 100;
         lp.y = 200;
         lp.width = 300;
         lp.height = 200;
+
+        lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
         wmManager.addView(button,lp);
 
-//        lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtil.showLong(button.getContext(),"真听话");
+            }
+        });
+
        button.setOnTouchListener((v, event) -> {
            int x = (int) event.getRawX();
            int y = (int) event.getRawY();
 
            switch (event.getAction()){
                case MotionEvent.ACTION_MOVE:
-                   lp.x = x;
-                   lp.y = y;
+                   lp.x = x - 150;
+                   lp.y = y - 100;
                    Log.e(TAG, "setWindow: " + x  + " : " + y);
                    wmManager.updateViewLayout(v,lp);
                    break;
            }
-
-
            return false;
        });
     }
