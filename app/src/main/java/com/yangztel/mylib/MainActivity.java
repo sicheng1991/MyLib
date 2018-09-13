@@ -115,8 +115,8 @@ public class MainActivity extends FragmentActivity {
         requestPermission();
 
         NotificationUtils utils = new NotificationUtils(this);
-        utils.sendNotification("标题","这是内容");
-
+//        utils.sendNotification("标题","这是内容");
+        utils.sendRemoteNotification();
 
 
 
